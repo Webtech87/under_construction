@@ -1,8 +1,17 @@
 from datetime import timedelta
 from pathlib import Path
-from secret_files.secret_data import *
+from dotenv import load_dotenv
 import os
 
+dotenv_path = "/etc/secrets/.env"
+load_dotenv(dotenv_path)
+
+# Read secrets
+SECRET_KEY = os.getenv("SECRET_KEY")
+EMAIL_SENDER = os.getenv("EMAIL_SENDER")
+EMAIL_SENDER_PASSWORD = os.getenv("EMAIL_SENDER_PASSWORD")
+RECAPTCHA_PUBLIC_KEY = os.getenv("RECAPTCHA_PUBLIC_KEY")
+RECAPTCHA_PRIVATE_KEY = os.getenv("RECAPTCHA_PRIVATE_KEY")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -15,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["under_construction.onrender.com"]
 
 
 #SITE_DOMAIN = insert a domain here
@@ -92,7 +101,7 @@ WSGI_APPLICATION = 'psycology.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-#'''---Prod settings---
+'''---Prod settings---
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -103,7 +112,7 @@ DATABASES = {
         'PORT': '5432',               
     }
 }
-#'''
+'''
 
 
 '''---DOCKER SETTINGS---
@@ -224,4 +233,23 @@ SIMPLE_JWT = {
     "TOKEN_BLACKLIST_SERIALIZER": "rest_framework_simplejwt.serializers.TokenBlacklistSerializer",
     "SLIDING_TOKEN_OBTAIN_SERIALIZER": "rest_framework_simplejwt.serializers.TokenObtainSlidingSerializer",
     "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
+}
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': 'error.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    },
 }

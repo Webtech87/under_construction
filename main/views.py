@@ -1,9 +1,7 @@
-from django.shortcuts import render, HttpResponse, redirect
-from django.contrib.auth.hashers import make_password, check_password
+from django.shortcuts import render
 from .forms import ContactRequestForm
-from django.core.mail import send_mail, EmailMultiAlternatives
+from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
-from secret_files.secret_data import *
 import logging
 
 # Imports for Google Drive and Sheets APIs
@@ -17,8 +15,11 @@ import os
 # Create your views here.
 
 # Google Sheets logic
-load_dotenv(dotenv_path=os.path.join('secret_files', '.env'))
-json_path = os.getenv('CLIENT_SECRET')
+load_dotenv("/etc/secrets/.env")
+
+EMAIL_SENDER = os.getenv("EMAIL_SENDER")
+EMAIL_SENDER_PASSWORD = os.getenv("EMAIL_SENDER_PASSWORD")
+json_path = os.getenv('CLIENT_SECRET')  # Google service account file
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
 
