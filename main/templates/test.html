@@ -7,7 +7,7 @@
     <title>Página em Construção</title>
     <link href="">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'main/page_under_construction.css' %}">
+    <link rel="stylesheet" href="{% static 'main/test.css' %}">
 </head>
 <body>
     <div class="full_scn">
@@ -17,57 +17,59 @@
                 <a class="navbar-brand" href="#"><img alt="logo" src="/static/images/logo-colored.png"></a>                
             </div>
     
-            <!-- Content--> 
-            <div class="my_container">
-                <div class="mt-5 content text_content">
-                    <p style="color:orange;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
-                            <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.15.15 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.2.2 0 0 1-.054.06.1.1 0 0 1-.066.017H1.146a.1.1 0 0 1-.066-.017.2.2 0 0 1-.054-.06.18.18 0 0 1 .002-.183L7.884 2.073a.15.15 0 0 1 .054-.057m1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767z"/>
-                            <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-                        </svg>
-                    </p>
-                    <p>O nosso site está</p>
-                    <h1>Em construção</h1>
-                    <p>O nosso site está a caminho para trazer-lhe conteúdos e recursos incríveis sobre desenvolvimento infantil e integração sensorial. Voltamos em breve! Até lá, siga-nos nas redes sociais ou entre em contacto connosco para mais informações.</p>
-                    {% if success %}
-                        <div class="alert alert-success">{{ success }}</div>
-                    {% endif %}
-
-                    {% if error %}
-                        <div class="alert alert-danger">{{ error }}</div>
-                    {% endif %}
-                    <button type="button" class="btn btn-primary button-blink" data-toggle="modal" data-target="#exampleModal">
-                        Avisa-me <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
-                            <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2M8 1.918l-.797.161A4 4 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4 4 0 0 0-3.203-3.92zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5 5 0 0 1 13 6c0 .88.32 4.2 1.22 6"/>
-                        </svg>
-                    </button>
-                    <div class="media_social">
-                        <div class="facebook item-ss">
-                            <a href="https://www.facebook.com/paula.serrano.3576/">
-                                <img src="{% static 'images/facebook.png' %}" alt="Facebook Icon" width="16" height="16">
-                            </a>
-                        </div>
-                        <div class="instagram item-ss">
-                            <a href="https://www.instagram.com/paulamserrano?utm_source=qr&igsh=dWN4ZnpzcHdvNjF2">
-                                <img src="{% static 'images/instagram.png' %}" alt="Instagram Icon" width="16" height="16">
-                            </a>
-                        </div>
-                        <div class="email item-ss">
-                            <a href="mailto:paulaserranoeducacao@gmail.com">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
-                                    <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
+            <!-- Content-->
+            <div class="container" style="max-width: 90%">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-10">
+                        <div class="mt-5 content text_content">
+                            <p style="color:orange;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
+                                    <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.15.15 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.2.2 0 0 1-.054.06.1.1 0 0 1-.066.017H1.146a.1.1 0 0 1-.066-.017.2.2 0 0 1-.054-.06.18.18 0 0 1 .002-.183L7.884 2.073a.15.15 0 0 1 .054-.057m1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767z"/>
+                                    <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
                                 </svg>
-                            </a>
+                            </p>
+                            <p>O nosso site está</p>
+                            <h1>Em construção</h1>
+                            <p>O nosso site está a caminho para trazer-lhe conteúdos e recursos incríveis sobre desenvolvimento infantil e integração sensorial. Voltamos em breve! Até lá, siga-nos nas redes sociais ou entre em contacto connosco para mais informações.</p>
+                            {% if success %}
+                                <div class="alert alert-success">{{ success }}</div>
+                            {% endif %}
+
+                            {% if error %}
+                                <div class="alert alert-danger">{{ error }}</div>
+                            {% endif %}
+                            <button type="button" class="btn btn-primary button-blink" data-toggle="modal" data-target="#exampleModal">
+                                Avisa-me <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
+                                    <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2M8 1.918l-.797.161A4 4 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4 4 0 0 0-3.203-3.92zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5 5 0 0 1 13 6c0 .88.32 4.2 1.22 6"/>
+                                </svg>
+                            </button>
+                            <div class="media_social">
+                                <div class="facebook item-ss">
+                                    <a href="https://www.facebook.com/paula.serrano.3576/">
+                                        <img src="{% static 'images/facebook.png' %}" alt="Facebook Icon" width="16" height="16">
+                                    </a>
+                                </div>
+                                <div class="instagram item-ss">
+                                    <a href="https://www.instagram.com/paulamserrano?utm_source=qr&igsh=dWN4ZnpzcHdvNjF2">
+                                        <img src="{% static 'images/instagram.png' %}" alt="Instagram Icon" width="16" height="16">
+                                    </a>
+                                </div>
+                                <div class="email item-ss">
+                                    <a href="mailto:paulaserranoeducacao@gmail.com">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                                            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="mt-5 content image_content"></div>
-
             </div>
     
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding: 0;">
                 <div class="modal-dialog">
                     <div class="modal-content rounded-lg" style="padding: 20px;">
                         <div class="modal-header" style="border: 0;">

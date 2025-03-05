@@ -1,0 +1,355 @@
+.full_scn{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.btn{
+    margin-top: 20px;
+}
+
+
+.mt-5 button{
+    width: 50%;
+}
+
+.false_nb img{
+    margin-top: 15%;
+    margin-left: 30%;
+    width: 100px;
+    height: 100px;
+}
+
+.content{
+    width: 60%;
+    margin-top: 0 !important;    
+}
+
+.content h1 {
+    font-size: 48px;
+}
+
+.content p {
+    font-size: 20px;
+}
+
+.text_content{
+    color: white;
+}
+
+.image_content{
+    width: 70%;
+}
+
+.container{
+    margin: 10% 4%;
+    width: 90% !important;
+    display: flex;
+    justify-content: space-between;
+}
+
+.media_social{
+    margin-top: 25px;
+    display: flex; 
+    justify-content: space-around; 
+    width: 50%; 
+}
+/*
+.image__ft{
+    width: 50%;
+}*/
+
+.image__1{
+    width: 15%;
+    position: absolute;
+    margin-top:-10%;
+    margin-left:7%;
+}
+
+.image__2{
+    width: 15%;
+    position: absolute;
+    margin-top:-10%;
+    right: 15%;
+}
+
+.image__3{
+    width: 15%;
+    position: absolute;
+    margin-top:300px;
+    right: 40%;
+}
+
+.image__4{
+    width: 15%;
+    position: absolute;
+    margin-top:150px;
+    right: 20%;
+}
+
+.picture_part {
+    position: absolute; /* Абсолютное позиционирование */
+    top: 0;
+    left: 0;
+    width: 100%; /* Растягиваем на всю ширину */
+    height: 100%; /* Растягиваем на всю высоту */
+    z-index: -1; /* Помещаем изображение ниже других элементов */
+}
+
+.picture_part::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.picture_part img {
+    width: 100vw; /* Изображение растягивается по ширине */
+    height: 100vh; /* Изображение растягивается по высоте */
+    object-fit: cover;
+}
+
+.form-group-col{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.my_custom_col{
+    width: 49%;
+}
+
+.modal-content{
+    background-image: url("../images/bg-form2.png") !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+}
+
+.modal-header .close {
+    padding: 1rem 0 1rem 1rem;
+}
+
+.modal-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+
+.rounded-lg {
+    border-radius: 16px !important;
+}
+
+.white-border {
+    border: 1px solid #fff !important;
+}
+
+.submit_button{
+    margin: 0 auto;
+    width: 100%;
+}
+
+.white-border {
+    border: 1px solid #E5E5E5 !important;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  .button-blink {
+    animation: blink 1.5s infinite; /* 1 second duration, repeats forever */
+  }
+
+@media (min-width: 1025px) and (max-width: 1550px) {
+    .my_container {
+        margin-top: 100px;
+    }
+    
+    .content h1 {
+        font-size: 36px;
+    }
+
+    .content p {
+        font-size: 16px;
+    }
+
+    .content button {
+        width: 60%;
+    }
+
+    .alert {
+        margin-bottom: 0;
+        font-size: 16px;
+        padding: .5rem 1rem;
+    }
+
+    .media_social {
+        margin-top: 15px;
+        width: 60%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .container{
+        margin: 20% 4%;
+    }
+
+    .content h1 {
+        font-size: 32px;
+    }
+
+    .content p {
+        font-size: 14px;
+    }
+
+    .content p svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .content button {
+        margin-top: 0;
+        width: 80%;
+        height: 10%;
+        padding: .15rem .75rem;
+        font-size: small;
+    }
+
+    .content button svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .media_social {
+        margin-top: 10px;
+        width: 80%;
+    }
+
+    .media_social svg, .media_social img {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+@media (max-width: 767px) {
+    .false_nb img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .container {
+        margin-top: 120px !important;
+    }
+
+    .text_content {
+        width: 85%;
+    }
+
+    .content h1 {
+        font-size: 28px;
+    }
+
+    .content p {
+        font-size: 13px;
+    }
+
+    .content p svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .content button {
+        margin-top: 0;
+        width: 80%;
+        height: 10%;
+        padding: .15rem .75rem;
+        font-size: small;
+    }
+
+    .content button svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .media_social {
+        margin-top: 10px;
+        width: 80%;
+    }
+
+    .media_social svg, .media_social img {
+        width: 14px;
+        height: 14px;
+    }
+
+    .image_content {
+        max-width: 0%;
+    }
+
+    .alert {
+        font-size: small;
+    }
+
+    .modal-header {
+        padding: 0 !important;
+    }
+
+    .modal-header img {
+        width: 35px !important;
+    }
+
+    .modal-header h5 {
+        font-size: medium;
+        margin-left: 5px;
+    }
+
+    .close {
+        padding-right: 4px !important;
+    }
+
+    .form-control {
+        padding: .15rem .75rem !important;
+    }
+
+    form {
+        margin-top: 5px !important;
+    }
+
+    form label {
+        font-size: small;
+        margin-bottom: 5px !important;
+    }
+
+    form input {
+        height: 30px !important;
+        font-size: 13px !important;
+    }
+
+    form select {
+        height: 30px !important;
+        font-size: 13px !important;
+    }
+
+    form textarea {
+        font-size: 13px !important;
+        height: calc(3 * 1.2em);
+    }
+
+    form button {
+        font-size: 14px !important;
+    }
+}

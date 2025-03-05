@@ -177,12 +177,12 @@ def site_under_construction(request):
                 email_msg.attach_alternative(email_body, "text/html")
                 email_msg.send(fail_silently=False)
             
-                return render(request, "index.html", context)
+                return render(request, "test.html", context)
 
             # Raise error if email not sent because fail_silently=False
             except Exception as e:
                 logger.error(f"Email sending failed: {e}")
-                return render(request, "index.html", context)
+                return render(request, "test.html", context)
 
     else:
         form = ContactRequestForm()
@@ -190,4 +190,4 @@ def site_under_construction(request):
             'form': form,
             'submit': 'Enviar Mensagem'
         }
-    return render(request, 'index.html', context)
+    return render(request, 'test.html', context)
