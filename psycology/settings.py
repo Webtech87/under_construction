@@ -11,8 +11,8 @@ RECAPTCHA_PUBLIC_KEY = os.getenv("RECAPTCHA_PUBLIC_KEY")
 RECAPTCHA_PRIVATE_KEY = os.getenv("RECAPTCHA_PRIVATE_KEY")
 
 
-DEBUG = False  # Set to False for production
-ALLOWED_HOSTS = ['https://under-construction-xijm.onrender.com']
+DEBUG = True  # Set to False for production
+ALLOWED_HOSTS = ['https://under-construction-xijm.onrender.com', 'localhost', '127.0.0.1']
 
 SITE_DOMAIN = 'http://localhost:8000'
 
@@ -80,7 +80,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTHENTICATION_BACKENDS = [
     'users.authentication_backend_email.EmailAuthBackend',
-    'django.contrib.auth.backends.ModelBackend',
 ]
 
 EMAIL_HOST = 'smtp.gmail.com'
@@ -159,7 +158,7 @@ LOGGING = {
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],  # Leave this empty if you don't want to add a global template directory
+        'DIRS': [BASE_DIR / 'main' / 'templates'],
         'APP_DIRS': True,  # This allows Django to search inside app-level templates
         'OPTIONS': {
             'context_processors': [
@@ -171,3 +170,5 @@ TEMPLATES = [
         },
     },
 ]
+
+CSRF_TRUSTED_ORIGINS = ['https://under-construction-xijm.onrender.com']
