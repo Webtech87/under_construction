@@ -12,7 +12,7 @@ RECAPTCHA_PRIVATE_KEY = os.getenv("RECAPTCHA_PRIVATE_KEY")
 
 
 DEBUG = False  # Set to False for production
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['https://under-construction-xijm.onrender.com']
 
 SITE_DOMAIN = 'http://localhost:8000'
 
