@@ -9,23 +9,33 @@ from google.oauth2.service_account import Credentials
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
 from googleapiclient.errors import HttpError
-from dotenv import load_dotenv
 import os
+import base64
 
 # Create your views here.
 
 # Google Sheets logic
-load_dotenv("/etc/secrets/.env")
+
+CLIENT_SECRET_BASE64 = os.getenv('CLIENT_SECRET_BASE64')
+
+# Decode the base64 string and write the content to a temporary file
+decoded_credentials = base64.b64decode(CLIENT_SECRET_BASE64)
+secret_file_path = '/tmp/secret_files/service_key.json'
+
+# Ensure the directory exists
+os.makedirs(os.path.dirname(secret_file_path), exist_ok=True)
+
+with open(secret_file_path, 'wb') as f:
+    f.write(decoded_credentials)
 
 EMAIL_SENDER = os.getenv("EMAIL_SENDER")
-EMAIL_SENDER_PASSWORD = os.getenv("EMAIL_SENDER_PASSWORD")
-json_path = os.getenv('CLIENT_SECRET')  # Google service account file
+EMAIL_SENDER_PASSWORD = os.getenv("EMAIL_SENDER_PASSWORD") # Google service account file
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
 
 # Get credentials
 def get_credentials():
-    credentials = service_account.Credentials.from_service_account_file(json_path, scopes=SCOPES)
+    credentials = service_account.Credentials.from_service_account_file(secret_file_path, scopes=SCOPES)
 
     return credentials
 
