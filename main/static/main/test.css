@@ -51,7 +51,8 @@
 .media_social{
     margin-top: 25px;
     display: flex; 
-    justify-content: space-around; 
+    justify-content: center;
+    gap: 17%; 
     width: 50%; 
 }
 /*
@@ -146,6 +147,23 @@
     transform: translateX(-50%);
     text-align: center;
     white-space: nowrap; /* Prevents text from wrapping */
+}
+
+/* Target #privacyModal and #termsModal */
+#privacyModal .modal-dialog, #termsModal .modal-dialog {
+    max-height: 100vh; /* Adjust as needed, 90% of viewport height */
+    overflow-y: auto; /* Ensure the modal content is scrollable if needed */
+}
+
+/* Ensure the body of the modal content is scrollable */
+#privacyModal .modal-body, #termsModal .modal-body {
+    max-height: 72vh; /* Adjust as needed */
+    overflow-y: auto; /* Enable scrolling within the modal body if content overflows */
+}
+
+/* Prevent the body scrollbar from appearing when these modals are open */
+body.modal-open {
+    overflow: hidden;
 }
 
 .rounded-lg {

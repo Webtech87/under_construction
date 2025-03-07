@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página em Construção</title>
-    <link href="">
+    <link href="{% static 'images/logo-black.png' %}" rel="icon">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'main/test.css' %}">
 </head>
@@ -19,7 +19,7 @@
     
             <!-- Content-->
             <div class="container" style="max-width: 90%">
-                <div class="row">
+            <div class="row">
                     <div class="col-lg-6 col-md-8 col-sm-10">
                         <div class="mt-5 content text_content">
                             <p style="color:orange;">
@@ -111,7 +111,7 @@
                                 <div class="mb-3 form-check">
                                     {{ form.accept_terms }}  <!-- Checkbox field -->
                                     <label class="form-check-label" for="exampleCheck">
-                                        Eu li e aceito os <a href="#">termos e condições</a> e as <a href="#">políticas de privacidade</a>.
+                                        Eu li e aceito os <a href="#" data-toggle="modal" data-target="#termsModal">termos e condições</a> e as <a href="#" data-toggle="modal" data-target="#privacyModal">políticas de privacidade</a>.
                                     </label>
                                     {{ form.accept_terms.errors }}  <!-- Show errors if not checked -->
                                 </div>
@@ -123,6 +123,10 @@
                 </div>
             </div>
         </div>
+
+        {% include 'termos.html' %}
+        {% include 'politica.html' %}
+
         <div class="picture_part">
             <img alt="bg_main" src='/static/images/bg4.svg'>
         </div>
