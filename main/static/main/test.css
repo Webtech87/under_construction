@@ -335,6 +335,27 @@ body.modal-open {
         margin-left: 5px;
     }
 
+    /* Reset the modal settings for mobile */
+    #privacyModal .modal-dialog, #termsModal .modal-dialog {
+        max-height: 100vh; /* Adjust to your preference for mobile */
+        overflow-y: auto; /* Keep it scrollable */
+    }
+
+    /* Reset the body content's max-height for mobile view */
+    #privacyModal .modal-body, #termsModal .modal-body {
+        max-height: 83vh; /* Adjust as needed */
+        overflow-y: auto; /* Enable scrolling inside the modal */
+    }
+
+    /* Ensure long email addresses don't overflow the modal */
+    #termsModal .modal-body a,
+    #privacyModal .modal-body a {
+        word-wrap: break-word !important;  /* Wrap the text */
+        overflow-wrap: break-word !important;  /* Ensure text breaks if it's too long */
+        white-space: normal !important;  /* Prevent the text from staying on one line */
+        max-width: 100% !important;  /* Ensure the email link doesn't exceed modal width */
+    }
+
     .close {
         padding-right: 4px !important;
     }
