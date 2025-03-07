@@ -479,7 +479,7 @@ body.modal-open {
 
     #cookies-btn-accept, #cookies-btn-reject {
         height: 30px;
-        font-size: 14px !important;
+        font-size: 12px !important;
         display: flex;
         align-items: center;
     }
