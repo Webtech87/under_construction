@@ -51,7 +51,8 @@
 .media_social{
     margin-top: 25px;
     display: flex; 
-    justify-content: space-around; 
+    justify-content: center;
+    gap: 17%; 
     width: 50%; 
 }
 /*
@@ -148,6 +149,23 @@
     white-space: nowrap; /* Prevents text from wrapping */
 }
 
+/* Target #privacyModal and #termsModal */
+#privacyModal .modal-dialog, #termsModal .modal-dialog {
+    max-height: 100vh; /* Adjust as needed, 90% of viewport height */
+    overflow-y: auto; /* Ensure the modal content is scrollable if needed */
+}
+
+/* Ensure the body of the modal content is scrollable */
+#privacyModal .modal-body, #termsModal .modal-body {
+    max-height: 72vh; /* Adjust as needed */
+    overflow-y: auto; /* Enable scrolling within the modal body if content overflows */
+}
+
+/* Prevent the body scrollbar from appearing when these modals are open */
+body.modal-open {
+    overflow: hidden;
+}
+
 .rounded-lg {
     border-radius: 16px !important;
 }
@@ -164,6 +182,79 @@
 .white-border {
     border: 1px solid #E5E5E5 !important;
 }
+
+#cookies {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    color: white;
+    background-color: rgb(0, 0, 0, 0.85);
+    z-index: 3;
+    /*display: none;*/
+  }
+  
+  .container-cookies {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+  
+  .cookies {
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .cookies p {
+    margin: 0;
+    padding-left: 10px;
+    line-height: 70px;
+    font-family: "Roboto", serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 16px;
+  }
+  
+  .cookies a {
+    color: yellow;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  #cookies-btn-accept {
+    border-radius: 5px;
+    padding: 8px 12px 8px 12px;
+    font-size: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    border: 3px solid green;
+    background-color: green;
+    color: white;
+    margin-right: 10px;
+    font-family: "Roboto", serif;
+    font-weight: 300;
+    font-style: normal;
+    margin-left: auto !important;
+  }
+
+  #cookies-btn-reject {
+    border-radius: 5px;
+    padding: 8px 12px 8px 12px;
+    font-size: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    border: 3px solid red;
+    background-color: red;
+    color: white;
+    margin-right: 10px;
+    font-family: "Roboto", serif;
+    font-weight: 300;
+    font-style: normal;
+    margin-left: auto !important;
+  }
 
 @keyframes blink {
     0% { opacity: 1; }
@@ -317,6 +408,27 @@
         margin-left: 5px;
     }
 
+    /* Reset the modal settings for mobile */
+    #privacyModal .modal-dialog, #termsModal .modal-dialog {
+        max-height: 100vh; /* Adjust to your preference for mobile */
+        overflow-y: auto; /* Keep it scrollable */
+    }
+
+    /* Reset the body content's max-height for mobile view */
+    #privacyModal .modal-body, #termsModal .modal-body {
+        max-height: 83vh; /* Adjust as needed */
+        overflow-y: auto; /* Enable scrolling inside the modal */
+    }
+
+    /* Ensure long email addresses don't overflow the modal */
+    #termsModal .modal-body a,
+    #privacyModal .modal-body a {
+        word-wrap: break-word !important;  /* Wrap the text */
+        overflow-wrap: break-word !important;  /* Ensure text breaks if it's too long */
+        white-space: normal !important;  /* Prevent the text from staying on one line */
+        max-width: 100% !important;  /* Ensure the email link doesn't exceed modal width */
+    }
+
     .close {
         padding-right: 4px !important;
     }
@@ -351,5 +463,29 @@
 
     form button {
         font-size: 14px !important;
+    }
+
+    .cookies {
+        padding: 5px 0px 5px 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .cookies p {
+        line-height: 15px;
+        font-size: 13px;
+    }
+
+    #cookies-btn-accept, #cookies-btn-reject {
+        height: 30px;
+        font-size: 12px !important;
+        display: flex;
+        align-items: center;
+    }
+
+    .cookies-buttons {
+        display: flex;
+        justify-content: center;
     }
 }
