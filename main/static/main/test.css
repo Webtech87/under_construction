@@ -183,6 +183,79 @@ body.modal-open {
     border: 1px solid #E5E5E5 !important;
 }
 
+#cookies {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    color: white;
+    background-color: rgb(0, 0, 0, 0.85);
+    z-index: 3;
+    /*display: none;*/
+  }
+  
+  .container-cookies {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+  
+  .cookies {
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .cookies p {
+    margin: 0;
+    padding-left: 10px;
+    line-height: 70px;
+    font-family: "Roboto", serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 16px;
+  }
+  
+  .cookies a {
+    color: yellow;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  #cookies-btn-accept {
+    border-radius: 5px;
+    padding: 8px 12px 8px 12px;
+    font-size: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    border: 3px solid green;
+    background-color: green;
+    color: white;
+    margin-right: 10px;
+    font-family: "Roboto", serif;
+    font-weight: 300;
+    font-style: normal;
+    margin-left: auto !important;
+  }
+
+  #cookies-btn-reject {
+    border-radius: 5px;
+    padding: 8px 12px 8px 12px;
+    font-size: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    border: 3px solid red;
+    background-color: red;
+    color: white;
+    margin-right: 10px;
+    font-family: "Roboto", serif;
+    font-weight: 300;
+    font-style: normal;
+    margin-left: auto !important;
+  }
+
 @keyframes blink {
     0% { opacity: 1; }
     50% { opacity: 0; }
@@ -390,5 +463,29 @@ body.modal-open {
 
     form button {
         font-size: 14px !important;
+    }
+
+    .cookies {
+        padding: 5px 0px 5px 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .cookies p {
+        line-height: 15px;
+        font-size: 13px;
+    }
+
+    #cookies-btn-accept, #cookies-btn-reject {
+        height: 30px;
+        font-size: 14px !important;
+        display: flex;
+        align-items: center;
+    }
+
+    .cookies-buttons {
+        display: flex;
+        justify-content: center;
     }
 }

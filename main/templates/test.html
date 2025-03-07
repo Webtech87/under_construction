@@ -130,11 +130,65 @@
         <div class="picture_part">
             <img alt="bg_main" src='/static/images/bg4.svg'>
         </div>
+
+        <div id="cookies">
+            <div class="container-cookies">
+              <div class="subcontainer">
+                <div class="cookies">
+                  <p>
+                    Este site utiliza <a href="">cookies</a> para melhorar sua experiência.                    
+                  </p>
+                  <div class="cookies-buttons">
+                    <button id="cookies-btn-accept" class="blinking">Aceitar cookies</button>
+                    <button id="cookies-btn-reject" class="blinking">Rejeitar cookies</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
     </div>
 
     
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        setCookie = (cName, cValue, expDays) => {
+            let date = new Date();
+            date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = cName + "=" + cValue + "; " + expires + "; path=/";
+        }
+
+        getCookie = (cName) => {
+            const name = cName + "=";
+            const cDecoded = decodeURIComponent(document.cookie);
+            const cArr = cDecoded.split(";");
+            let value;
+            cArr.forEach(val => {
+                if (val.trim().indexOf(name) === 0) value = val.substring(name.length).trim();
+            });
+            return value;
+        }
+
+        document.querySelector("#cookies-btn-accept").addEventListener("click", () => {
+            document.querySelector("#cookies").style.display = "none";
+            setCookie("cookie", true, 30);
+        });
+
+        document.querySelector("#cookies-btn-reject").addEventListener("click", () => {
+            document.querySelector("#cookies").style.display = "none";  // Hide the banner if rejected
+            // Optionally delete the cookie if already set
+            document.cookie = "cookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";  // Delete the cookie
+        });
+
+        cookieMessage = () => {
+            if (!getCookie("cookie"))
+                document.querySelector("#cookies").style.display = "block";
+        }
+
+        window.addEventListener("load", cookieMessage);
+    </script>
 </body>
 </html>
