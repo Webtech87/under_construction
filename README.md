@@ -34,8 +34,8 @@ This is an **under construction** page for Dr. Paula, a psychologist, preceding 
 
 1. **Clone the Repository**
 ```bash
-git clone https://github.com/your-repo.git
-cd your-repo
+git clone https://github.com/Webtech87/under_construction.git
+cd path/to/your/local/repo
 ```
 
 2. **Create & Activate Virtual Environment**
@@ -60,7 +60,9 @@ RECAPTCHA_PRIVATE_KEY = 'your-recaptcha-private-key'
 ```
 You will need a service key from Google Cloud Console to run Google API. After downloading it, store it in a `.env` file inside your secret folder:
 Example:
+```ini
 CLIENT_SECRET = your-secret-folder/your-service-key.json
+```
 
 5. **Run the server**
 ```bash
