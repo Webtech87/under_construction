@@ -68,18 +68,18 @@ For detailed information, visit Whitenoise's documentation.
 pip freeze > requirements.txt
 ```
 
-6. **No Database needed**
+6. **No Database needed**  
 For this project, no database is needed, so you can delete any folder, file or piece of code automatically created by **Django** related to databases.
 
 ## Deploying on Render
 
-1. **New Project**
+1. **New Project**  
 After creating an account on Render and logging in, click on **New** (top-right corner) and choose **Web Service**.
 
-2. **Logging in to you GitHub Account**
+2. **Logging in to you GitHub Account**  
 You will need to give Render permission to access your repositories. After giving permission, it can take a few minutes to Render to connect to your GitHub account.
 
-3. **Choosing project on GitHub**
+3. **Choosing project on GitHub**  
 You can choose the repository you want to deploy. After choosing, click on **Connect**.
 
 4. **Deploying a Web Service**
@@ -119,7 +119,7 @@ with open(secret_file_path, 'wb') as f:
     f.write(decoded_credentials)
 ```
 
-6. **Finishing Deployment Process**
+6. **Finishing Deployment Process**  
 After setting up your environment variables, select a plan and click on **Deploy Web Service**.  
 There are 2 different situations about the website's domain:
 - If you choose the free plan, when deployment starts, **Render** will generate a random URL for your project.
