@@ -11,7 +11,7 @@ RECAPTCHA_PUBLIC_KEY = os.getenv("RECAPTCHA_PUBLIC_KEY")
 RECAPTCHA_PRIVATE_KEY = os.getenv("RECAPTCHA_PRIVATE_KEY")
 
 
-DEBUG = True  # Set to False for production
+DEBUG = False  # Set to False for production
 ALLOWED_HOSTS = ['under-construction-xijm.onrender.com', 'paulaserranoeducacao.pt', 'localhost', '127.0.0.1']
 
 SITE_DOMAIN = 'http://localhost:8000'
@@ -75,8 +75,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-#STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
