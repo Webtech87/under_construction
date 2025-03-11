@@ -42,7 +42,7 @@
 }
 
 .container{
-    margin: 10% 4%;
+    margin: 8% 4%;
     width: 90% !important;
     display: flex;
     justify-content: space-between;
@@ -149,14 +149,31 @@
     white-space: nowrap; /* Prevents text from wrapping */
 }
 
-/* Target #privacyModal, #termsModal and #cookiesModal */
-#privacyModal .modal-dialog, #termsModal .modal-dialog, #cookiesModal .modal-dialog {
+form .text-danger {
+    font-size: 12px !important;
+}
+
+#sendingMessage {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    display: none;  /* Initially hidden */
+    text-align: center; /* Center the entire message */
+    white-space: nowrap; /* Prevent line breaks */
+    color: rgb(18, 207, 18);
+    font-weight: bold;
+}
+
+/* Target #privacyModal and #termsModal */
+#privacyModal .modal-dialog, #termsModal .modal-dialog {
     max-height: 100vh; /* Adjust as needed, 90% of viewport height */
     overflow-y: auto; /* Ensure the modal content is scrollable if needed */
 }
 
 /* Ensure the body of the modal content is scrollable */
-#privacyModal .modal-body, #termsModal .modal-body, #cookiesModal .modal-body {
+#privacyModal .modal-body, #termsModal .modal-body {
     max-height: 72vh; /* Adjust as needed */
     overflow-y: auto; /* Enable scrolling within the modal body if content overflows */
 }
@@ -262,7 +279,7 @@ body.modal-open {
     100% { opacity: 1; }
   }
   
-  .button-blink {
+  .button-blink, .send-blink {
     animation: blink 1.5s infinite; /* 1 second duration, repeats forever */
   }
 
@@ -285,7 +302,7 @@ body.modal-open {
 
     .alert {
         margin-bottom: 0;
-        font-size: 14px;
+        font-size: 16px;
         padding: .5rem 1rem;
     }
 
@@ -409,25 +426,20 @@ body.modal-open {
     }
 
     /* Reset the modal settings for mobile */
-    #privacyModal .modal-dialog, 
-    #termsModal .modal-dialog,
-    #cookiesModal .modal-dialog {
+    #privacyModal .modal-dialog, #termsModal .modal-dialog {
         max-height: 100vh; /* Adjust to your preference for mobile */
         overflow-y: auto; /* Keep it scrollable */
     }
 
     /* Reset the body content's max-height for mobile view */
-    #privacyModal .modal-body,
-    #termsModal .modal-body,
-    #cookiesModal .modal-body {
+    #privacyModal .modal-body, #termsModal .modal-body {
         max-height: 83vh; /* Adjust as needed */
         overflow-y: auto; /* Enable scrolling inside the modal */
     }
 
     /* Ensure long email addresses don't overflow the modal */
     #termsModal .modal-body a,
-    #privacyModal .modal-body a,
-    #cookiesModal .modal-body a {
+    #privacyModal .modal-body a {
         word-wrap: break-word !important;  /* Wrap the text */
         overflow-wrap: break-word !important;  /* Ensure text breaks if it's too long */
         white-space: normal !important;  /* Prevent the text from staying on one line */
