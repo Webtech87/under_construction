@@ -146,7 +146,7 @@ def site_under_construction(request):
         form = ContactRequestForm(request.POST)
         context = {
             'form': form,
-            'success': 'Mensagem enviada com sucesso.'
+            'submit': 'Enviar Mensagem'
         }
         if form.is_valid():
             cd = form.cleaned_data
@@ -162,7 +162,9 @@ def site_under_construction(request):
                 sheet_id = create_or_get_sheet()
                 add_data_to_sheet(sheet_id, data)
             except Exception as e:
-                print(f"An error occurred with Google Sheets: {e}")
+                context['error'] = 'Erro ao salvar os dados. Tente novamente.'
+                print(f"-------Google Sheets error: {e}")
+                return render(request, "test.html", context)
 
 
             email_subject = f'Novo Formulário Preenchido'
@@ -187,13 +189,15 @@ def site_under_construction(request):
 
                 email_msg.attach_alternative(email_body, "text/html")
                 email_msg.send(fail_silently=False)
-            
-                return render(request, "test.html", context)
+
+                context['success'] = 'Mensagem enviada com sucesso!'
 
             # Raise error if email not sent because fail_silently=False
             except Exception as e:
                 logger.error(f"Email sending failed: {e}")
-                return render(request, "test.html", context)
+                context['error'] = 'Erro ao enviar o email. Tente novamente.'
+
+            return render(request, "test.html", context)
 
     else:
         form = ContactRequestForm()
