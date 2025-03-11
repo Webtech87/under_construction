@@ -42,7 +42,7 @@
 }
 
 .container{
-    margin: 10% 4%;
+    margin: 8% 4%;
     width: 90% !important;
     display: flex;
     justify-content: space-between;
@@ -147,6 +147,23 @@
     transform: translateX(-50%);
     text-align: center;
     white-space: nowrap; /* Prevents text from wrapping */
+}
+
+form .text-danger {
+    font-size: 12px !important;
+}
+
+#sendingMessage {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    display: none;  /* Initially hidden */
+    text-align: center; /* Center the entire message */
+    white-space: nowrap; /* Prevent line breaks */
+    color: rgb(18, 207, 18);
+    font-weight: bold;
 }
 
 /* Target #privacyModal and #termsModal */
@@ -262,7 +279,7 @@ body.modal-open {
     100% { opacity: 1; }
   }
   
-  .button-blink {
+  .button-blink, .send-blink {
     animation: blink 1.5s infinite; /* 1 second duration, repeats forever */
   }
 
