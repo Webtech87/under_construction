@@ -166,14 +166,14 @@ form .text-danger {
     font-weight: bold;
 }
 
-/* Target #privacyModal and #termsModal */
-#privacyModal .modal-dialog, #termsModal .modal-dialog {
+/* Target #privacyModal, #termsModal and #cookiesModal */
+#privacyModal .modal-dialog, #termsModal .modal-dialog, #cookiesModal .modal-dialog {
     max-height: 100vh; /* Adjust as needed, 90% of viewport height */
     overflow-y: auto; /* Ensure the modal content is scrollable if needed */
 }
 
 /* Ensure the body of the modal content is scrollable */
-#privacyModal .modal-body, #termsModal .modal-body {
+#privacyModal .modal-body, #termsModal .modal-body, #cookiesModal .modal-body {
     max-height: 72vh; /* Adjust as needed */
     overflow-y: auto; /* Enable scrolling within the modal body if content overflows */
 }
@@ -426,20 +426,25 @@ body.modal-open {
     }
 
     /* Reset the modal settings for mobile */
-    #privacyModal .modal-dialog, #termsModal .modal-dialog {
+    #privacyModal .modal-dialog, 
+    #termsModal .modal-dialog,
+    #cookiesModal .modal-dialog {
         max-height: 100vh; /* Adjust to your preference for mobile */
         overflow-y: auto; /* Keep it scrollable */
     }
 
     /* Reset the body content's max-height for mobile view */
-    #privacyModal .modal-body, #termsModal .modal-body {
+    #privacyModal .modal-body,
+    #termsModal .modal-body,
+    #cookiesModal .modal-body {
         max-height: 83vh; /* Adjust as needed */
         overflow-y: auto; /* Enable scrolling inside the modal */
     }
 
     /* Ensure long email addresses don't overflow the modal */
     #termsModal .modal-body a,
-    #privacyModal .modal-body a {
+    #privacyModal .modal-body a,
+    #cookiesModal .modal-body a {
         word-wrap: break-word !important;  /* Wrap the text */
         overflow-wrap: break-word !important;  /* Ensure text breaks if it's too long */
         white-space: normal !important;  /* Prevent the text from staying on one line */
