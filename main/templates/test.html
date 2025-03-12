@@ -119,14 +119,13 @@
                                         <span id="accept_terms_error" class="text-danger" style="display: none;">Necessita aceitação</span>
                                     </label>
                                 </div>
-                        
+                                
                                 <button type="submit" class="btn btn-primary submit_button" style="border-radius: 8px;">{{ submit }}</button>
-
-                                <div id="sendingMessage" class="text-center send-blink" style="display: none;">
-                                    <p>A enviar formulário...</p>
-                                </div>
-                            </form>
-                        </div>                        
+                            </form>                            
+                        </div>
+                        <div id="sendingMessage" class="text-center send-blink" style="display: none;">
+                            <p>A enviar formulário...</p>
+                        </div>                       
                     </div>
                 </div>
             </div>
@@ -134,6 +133,7 @@
 
         {% include 'termos.html' %}
         {% include 'politica.html' %}
+        {% include 'cookies.html' %}
 
         <div class="picture_part">
             <img alt="bg_main" src='/static/images/bg4.svg'>
@@ -144,7 +144,7 @@
               <div class="subcontainer">
                 <div class="cookies">
                   <p>
-                    Este site utiliza <a href="">cookies</a> para melhorar sua experiência.                    
+                    Este site utiliza <a href="#" data-toggle="modal" data-target="#cookiesModal">cookies</a> para melhorar sua experiência.                    
                   </p>
                   <div class="cookies-buttons">
                     <button id="cookies-btn-accept" class="blinking">Aceitar cookies</button>

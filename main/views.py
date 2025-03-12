@@ -135,6 +135,7 @@ def site_under_construction(request):
         form = ContactRequestForm(request.POST)
         context = {
             'form': form,
+            'submit': 'Enviar Mensagem',
             'success': 'Mensagem enviada com sucesso.'
         }
         if form.is_valid():
