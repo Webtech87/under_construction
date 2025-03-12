@@ -154,8 +154,8 @@ form .text-danger {
 }
 
 #sendingMessage {
-    position: fixed;
-    bottom: 20px;
+    position: absolute;
+    bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 16px;
@@ -164,6 +164,10 @@ form .text-danger {
     white-space: nowrap; /* Prevent line breaks */
     color: rgb(18, 207, 18);
     font-weight: bold;
+}
+
+#sendingMessage p {
+    margin-bottom: 8px;
 }
 
 /* Target #privacyModal, #termsModal and #cookiesModal */
