@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import ContactRequestForm
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
