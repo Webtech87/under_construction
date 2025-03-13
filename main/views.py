@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import ContactRequestForm
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
+from django.contrib import messages
 import logging
 
 # Imports for Google Drive and Sheets APIs
@@ -190,7 +191,7 @@ def site_under_construction(request):
                 email_msg.send(fail_silently=False)
 
                 # Store the success message in session
-                request.session['success_message'] = 'Mensagem enviada com sucesso.'
+                messages.success(request, 'Mensagem enviada com sucesso.')
 
                 # Redirect to the same page after successful form submission
                 return redirect('site_under_construction')
@@ -209,7 +210,7 @@ def site_under_construction(request):
         }
 
     # Retrieve the success message from the session and pass it to the template
-    success_message = request.session.pop('success_message', None)
+    success_message = request.session.get('success_message', None)
     if success_message:
         context['success'] = success_message
 
