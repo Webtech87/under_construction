@@ -135,9 +135,9 @@ def site_under_construction(request):
         form = ContactRequestForm(request.POST)
         context = {
             'form': form,
-            'submit': 'Enviar Mensagem',
-            'success': 'Mensagem enviada com sucesso.'
+            'submit': 'Enviar Mensagem'
         }
+
         if form.is_valid():
             cd = form.cleaned_data
             full_name = cd['full_name']
@@ -154,18 +154,16 @@ def site_under_construction(request):
             except Exception as e:
                 print(f"An error occurred with Google Sheets: {e}")
 
-
             email_subject = f'Novo Formulário Preenchido'
-
             email_body = render_to_string('emails/contact_email.html', {
                 'full_name': full_name,
                 'email': email,
                 'subject': subject,
                 'message': message
             })  
-            
+
             logger = logging.getLogger(__name__)
-            
+
             try:
                 email_msg = EmailMultiAlternatives(
                     subject=email_subject,
@@ -174,15 +172,19 @@ def site_under_construction(request):
                     to=[EMAIL_SENDER],
                     reply_to=[email]
                 )
-
                 email_msg.attach_alternative(email_body, "text/html")
                 email_msg.send(fail_silently=False)
-            
-                return render(request, "test.html", context)
 
-            # Raise error if email not sent because fail_silently=False
+                # Store the success message in session
+                request.session['success_message'] = 'Mensagem enviada com sucesso.'
+
+                # Redirect to the same page after successful form submission
+                return redirect(request.path)
+
             except Exception as e:
                 logger.error(f"Email sending failed: {e}")
+                # If email fails, keep the form data for re-submission
+                context['error_message'] = 'Ocorreu um erro ao enviar a mensagem.'
                 return render(request, "test.html", context)
 
     else:
@@ -191,4 +193,10 @@ def site_under_construction(request):
             'form': form,
             'submit': 'Enviar Mensagem'
         }
+
+    # Retrieve the success message from the session and pass it to the template
+    success_message = request.session.pop('success_message', None)
+    if success_message:
+        context['success'] = success_message
+
     return render(request, 'test.html', context)
