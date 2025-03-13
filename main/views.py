@@ -194,7 +194,7 @@ def site_under_construction(request):
                 messages.success(request, 'Mensagem enviada com sucesso.')
 
                 # Redirect to the same page after successful form submission
-                return redirect('site_under_construction')
+                return redirect('main:site_under_construction')
 
             except Exception as e:
                 logger.error(f"Email sending failed: {e}")
