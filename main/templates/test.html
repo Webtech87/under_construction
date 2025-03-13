@@ -31,12 +31,14 @@
                             <p>O nosso site está</p>
                             <h1>Em construção</h1>
                             <p>O nosso site está a caminho para trazer-lhe conteúdos e recursos incríveis sobre desenvolvimento infantil e integração sensorial. Voltamos em breve! Até lá, siga-nos nas redes sociais ou entre em contacto connosco para mais informações.</p>
-                            {% if success %}
-                                <div id="alert" class="alert alert-success">{{ success }}</div>
-                            {% endif %}
-
-                            {% if error %}
-                                <div id="alert" class="alert alert-danger">{{ error }}</div>
+                            {% if messages %}
+                                <div id="alert">
+                                    {% for message in messages %}
+                                        <div class="alert alert-{{ message.tags }}">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
                             {% endif %}
                             <button type="button" class="btn btn-primary button-blink" data-toggle="modal" data-target="#exampleModal">
                                 Avisa-me <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">

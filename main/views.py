@@ -199,7 +199,7 @@ def site_under_construction(request):
             except Exception as e:
                 logger.error(f"Email sending failed: {e}")
                 # If email fails, keep the form data for re-submission
-                context['error_message'] = 'Ocorreu um erro ao enviar a mensagem.'
+                messages.error(request, 'Ocorreu um erro ao enviar a mensagem.')
                 return render(request, "test.html", context)
 
     else:
@@ -208,10 +208,5 @@ def site_under_construction(request):
             'form': form,
             'submit': 'Enviar Mensagem'
         }
-
-    # Retrieve the success message from the session and pass it to the template
-    success_message = request.session.get('success_message', None)
-    if success_message:
-        context['success'] = success_message
 
     return render(request, 'test.html', context)
