@@ -186,18 +186,20 @@ def site_under_construction(request):
                     to=[EMAIL_SENDER],
                     reply_to=[email]
                 )
-
                 email_msg.attach_alternative(email_body, "text/html")
                 email_msg.send(fail_silently=False)
 
-                context['success'] = 'Mensagem enviada com sucesso!'
+                # Store the success message in session
+                request.session['success_message'] = 'Mensagem enviada com sucesso.'
 
-            # Raise error if email not sent because fail_silently=False
+                # Redirect to the same page after successful form submission
+                return redirect(request.path)
+
             except Exception as e:
                 logger.error(f"Email sending failed: {e}")
-                context['error'] = 'Erro ao enviar o email. Tente novamente.'
-
-            return render(request, "test.html", context)
+                # If email fails, keep the form data for re-submission
+                context['error_message'] = 'Ocorreu um erro ao enviar a mensagem.'
+                return render(request, "test.html", context)
 
     else:
         form = ContactRequestForm()
@@ -205,4 +207,10 @@ def site_under_construction(request):
             'form': form,
             'submit': 'Enviar Mensagem'
         }
+
+    # Retrieve the success message from the session and pass it to the template
+    success_message = request.session.pop('success_message', None)
+    if success_message:
+        context['success'] = success_message
+
     return render(request, 'test.html', context)

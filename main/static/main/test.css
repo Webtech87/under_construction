@@ -200,6 +200,10 @@ body.modal-open {
     width: 100%;
 }
 
+button.submit_button:disabled {
+    cursor: not-allowed !important;
+}
+
 .white-border {
     border: 1px solid #E5E5E5 !important;
 }

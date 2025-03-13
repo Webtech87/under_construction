@@ -32,11 +32,11 @@
                             <h1>Em construção</h1>
                             <p>O nosso site está a caminho para trazer-lhe conteúdos e recursos incríveis sobre desenvolvimento infantil e integração sensorial. Voltamos em breve! Até lá, siga-nos nas redes sociais ou entre em contacto connosco para mais informações.</p>
                             {% if success %}
-                                <div class="alert alert-success">{{ success }}</div>
+                                <div id="alert" class="alert alert-success">{{ success }}</div>
                             {% endif %}
 
                             {% if error %}
-                                <div class="alert alert-danger">{{ error }}</div>
+                                <div id="alert" class="alert alert-danger">{{ error }}</div>
                             {% endif %}
                             <button type="button" class="btn btn-primary button-blink" data-toggle="modal" data-target="#exampleModal">
                                 Avisa-me <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
@@ -120,7 +120,7 @@
                                     </label>
                                 </div>
                         
-                                <button type="submit" class="btn btn-primary submit_button" style="border-radius: 8px;">{{ submit }}</button>
+                                <button id="submit_button" type="submit" class="btn btn-primary submit_button" style="border-radius: 8px;">{{ submit }}</button>
 
                             </form>                            
                         </div>
@@ -253,14 +253,27 @@
                         event.preventDefault();  // Stop form submission if validation fails
                         //console.log("Form validation failed");
                     } else {
+                        const submitButton = document.getElementById("submit_button");
                         const sendingMessageDiv = document.getElementById('sendingMessage');
                         sendingMessageDiv.style.display = 'block';  // Make sure it's visible
 
                         // Add the blink animation class if not already added
                         sendingMessageDiv.classList.add('send-blink');
+                        submitButton.disabled = true;
                     }
                 });
             }
+            const alertMessage = document.getElementById('alert');
+
+            function hideAlert(alertElement) {
+                if (alertElement) {
+                    setTimeout(function() {
+                        alertElement.style.display = 'none';
+                    }, 5000);  // 5000 milliseconds = 5 seconds
+                }
+            }
+
+            hideAlert(alertMessage)
         });
     </script>
 </body>
